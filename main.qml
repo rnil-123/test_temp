@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import kunal 1.0
 import kunal 2.0
-
+import kunal 3.0
 
 Window {
     width: 640
@@ -15,6 +15,9 @@ Window {
     }
     Netcheck{
         id: myclass1
+    }
+    Serial{
+        id: myclass2
     }
 
     Text{
