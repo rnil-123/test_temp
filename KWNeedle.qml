@@ -22,7 +22,7 @@ Canvas {
 
         antialiasing: true
         smooth: true
-        color: "#FFC73E"
+        color: "red"
         onRotationChanged: {canvas.currentValue = zeiger.rotation - 90; canvas.requestPaint()}
 
             Behavior on rotation {

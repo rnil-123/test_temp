@@ -20,7 +20,7 @@ Canvas {
 
         smooth: true
         antialiasing: true
-        color: "#81FFFE"
+        color: "#8FFE6E"
         onRotationChanged: {canvas.currentValue = zeiger.rotation - 211; canvas.requestPaint()}//texti.text = zeiger.rotation
 
             Behavior on rotation {
@@ -56,10 +56,10 @@ Canvas {
           ctx.save();
 
           var gradient2 = ctx.createRadialGradient((parent.width / 2),(parent.height / 2), 0, (parent.width / 2),(parent.height / 2),parent.height);
-           gradient2.addColorStop(0.5, "#81FFFE");   //oben
-          gradient2.addColorStop(0.46, "#81FFFE");   //oben
-          gradient2.addColorStop(0.45, "#112478");   //mitte
-          gradient2.addColorStop(0.33, "transparent");   //unten
+           gradient2.addColorStop(0.5, "lightgreen");
+          gradient2.addColorStop(0.46, "lightgreen");
+          gradient2.addColorStop(0.45, "darkgreen");
+          gradient2.addColorStop(0.33, "transparent");
 
           ctx.clearRect(0, 0, canvas.width, canvas.height);
 

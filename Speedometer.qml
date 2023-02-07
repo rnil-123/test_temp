@@ -20,9 +20,8 @@ Rectangle {
         y: 210
         height: 90
         width: height
-       source: "/pics/arrow-down-solid.svg"
-
-       opacity:0
+        source: "/pics/arrow.png"
+        opacity:0
 
     }
 
@@ -33,9 +32,9 @@ Rectangle {
         y: 210
         height: 90
         width: height
-       source: "/pics/arrow-up-solid.svg"
-
-       opacity: 0
+        source: "/pics/arrow.png"
+        rotation: 180
+        opacity: 0
     }
 
     Image {
@@ -44,9 +43,9 @@ Rectangle {
         y: 210
         height: 90
         width: height
-       source: "/pics/arrow-right-solid.svg"
-
-       opacity:0
+        source: "/pics/arrow.png"
+        rotation: 270
+        opacity:0
 
     }
 
@@ -56,9 +55,9 @@ Rectangle {
         y: 210
         height: 90
         width: height
-       source: "/pics/arrow-left-solid.svg"
-
-       opacity:0
+        source: "/pics/arrow.png"
+        rotation: 90
+        opacity:0
 
     }
 

@@ -23,14 +23,14 @@ Rectangle {
     }
 
 
-    Image {
-        id: hoverIcon
-        x: 190//
-        y: 194
-        height: 120
-        width: height
-       source: "/pics/Tile.png"
-    }
+//    Image {
+//        id: hoverIcon
+//        x: 190//
+//        y: 194
+//        height: 120
+//        width: height
+//       source: "/pics/Tile.png"
+//    }
 
     Image {
         id: battery

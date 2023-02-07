@@ -119,25 +119,6 @@ Window {
 //        id: myclass2
 //    }
 
-    Text{
-         id: label
-         anchors{
-             top: parent.top
-             horizontalCenter: parent.horizontalCenter
-             topMargin: 20
-         }
-         font.pixelSize: 12
-         text: "CPU temperature: "+myclass.temp+" Celcius";
-     }
-    Text{
-         id: label1
-         anchors{
-             top: parent.center
-             horizontalCenter: parent.horizontalCenter
-             topMargin: 20
-         }
-         font.pixelSize: 12
-         text: "Internet Status: "+myclass1.net;
-     }
+
 
 }
