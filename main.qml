@@ -115,9 +115,9 @@ Window {
     Netcheck{
         id: myclass1
     }
-//    Serial{
-//        id: myclass2
-//    }
+    Serial{
+        id: myclass2
+    }
 
 
 
