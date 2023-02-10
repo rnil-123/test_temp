@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include "temperature.h"
 #include "netcheck.h"
+#include "serial.h"
 #include<QFile>
 #include<QTextStream>
 int main(int argc, char *argv[])
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     qmlRegisterType < temperature > ("kunal",1,0,"Temperature");
     qmlRegisterType < netcheck > ("kunal",2,0,"Netcheck");
+    qmlRegisterType < serial > ("kunal",3,0,"Serial");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
