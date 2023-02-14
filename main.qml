@@ -115,6 +115,35 @@ Window {
     Netcheck{
         id: myclass1
     }
+
+
+    Timer {
+            id: timer
+            interval: 1000
+            running: false
+            repeat: true
+            onTriggered: {
+                if (fuelBar.value <= 1)
+                    fuelBar.value -= 0.01
+                else
+                    fuelBar.value = 1
+            }
+        }
+
+    ProgressBar{
+        id: fuelBar
+        x: (parent.width / 2) - (width / 2)
+        y: 350
+        value: 1
+    }
+    Button{
+        x: (parent.width / 2) - (width / 2)
+        y: 390
+        width: 50
+        height: 30
+        text: "Fuel"
+        onClicked: fuelBar.value = 1
+    }
 //    Serial{
 //        id: myclass2
 //    }

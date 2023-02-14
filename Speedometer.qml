@@ -135,9 +135,17 @@ Rectangle {
                        focus: true
                        Keys.onPressed: {
                                 if (event.key == Qt.Key_Space && !event.isAutoRepeat) {
-                                    speedoNeedle.value = 100
-                                    kWNeedle.value = 0
-                                    drive()
+
+                                    if(fuelBar.value > 0){
+                                        speedoNeedle.value = 100
+                                        kWNeedle.value = 0
+                                        timer.running = true
+                                        drive()
+                                    } else {
+                                        speedoNeedle.value = 0
+                                        kWNeedle.value = 100
+                                    }
+
                                 }
 
                                 else if  (event.key == Qt.Key_Shift && !event.isAutoRepeat) {
@@ -172,6 +180,7 @@ Rectangle {
                        Keys.onReleased: {
                                if (event.key == Qt.Key_Space && !event.isAutoRepeat) {
                                    speedoNeedle.value = 0
+                                   timer.running = false
                                    kWNeedle.value = 100
                                }
                               if (event.key == Qt.Key_Shift && !event.isAutoRepeat) {
