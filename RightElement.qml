@@ -96,14 +96,15 @@ Rectangle {
             width: 100
             scale:1
 
-            Text {
-                y: 150
-                x: 40
-                scale: 2
-                font.family: "Eurostile"; color: "white"; font.pixelSize: 11
-                text: myclass.temp + " C"
-            }
+
         }
+    Text {
+        scale: 2
+        y:340
+        x:340
+        font.family: "Eurostile"; color: "white"; font.pixelSize: 11
+        text: myclass.temp + "C"
+    }
 
 }
 

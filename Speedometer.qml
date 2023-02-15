@@ -116,14 +116,16 @@ Rectangle {
                         {wifi.opacity = 0.5}
 
 
-            Text {
-                scale: 2
-                y: 150; x: 45
-                font.family: "Eurostile"; color: "white"; font.pixelSize: 11
-                text: myclass1.net
-            }
+
         }
 
+    Text {
+        scale: 2
+        y:350
+        x:700
+        font.family: "Eurostile"; color: "white"; font.pixelSize: 11
+        text: myclass1.net
+    }
 
 
               SpeedNeedle {
