@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtGraphicalEffects 1.0
 
 Canvas {
+    //canvas logic for speedometer
     id: canvas
 
     property int value : 0
@@ -11,7 +12,7 @@ Canvas {
 
     Rectangle {
         id: zeiger
-        rotation: -149 //siehe minrotation
+        rotation: -149 //setting minrotation
         width: 4
         height: parent.width / 2
         transformOrigin: Item.Bottom
@@ -21,7 +22,7 @@ Canvas {
         smooth: true
         antialiasing: true
         color: "#8FFE6E"
-        onRotationChanged: {canvas.currentValue = zeiger.rotation - 211; canvas.requestPaint()}//texti.text = zeiger.rotation
+        onRotationChanged: {canvas.currentValue = zeiger.rotation - 211; canvas.requestPaint()}
 
             Behavior on rotation {
                 NumberAnimation{

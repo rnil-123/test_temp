@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtGraphicalEffects 1.0
-import kunal 2.0
+
 
 Rectangle {
     color: "transparent"
@@ -9,11 +9,7 @@ Rectangle {
     property int tenseconds
     property int minutes
 
-    Netcheck{
-        id: myclass1
-    }
-
-
+// navigation arrow
     Image {
         id: i1
         x: -235
@@ -25,109 +21,7 @@ Rectangle {
 
     }
 
-
-    Image {
-        id: i2
-        x: -235
-        y: 210
-        height: 90
-        width: height
-        source: "/pics/arrow.png"
-        rotation: 180
-        opacity: 0
-    }
-
-    Image {
-        id: i3
-        x: -235
-        y: 210
-        height: 90
-        width: height
-        source: "/pics/arrow.png"
-        rotation: 270
-        opacity:0
-
-    }
-
-    Image {
-        id: i4
-        x: -235
-        y: 210
-        height: 90
-        width: height
-        source: "/pics/arrow.png"
-        rotation: 90
-        opacity:0
-
-    }
-
-//    Image {
-//        id: oncall
-//        anchors.verticalCenter: parent.verticalCenter
-//        x: 700
-//        y: 60
-//        fillMode: Image.PreserveAspectFit
-//        source: "/pics/call.png"
-//        height: 100
-//        width: 100
-//        opacity: 1
-
-//        Text {
-//            id:callTime
-//            y: 150; x: 45
-//            scale: 2
-//            font.family: "Eurostile"; color: "white"; font.pixelSize: 11
-//            text: minutes + ":" + tenseconds + seconds
-//        }
-//    }
-
-//    Image {
-//        id: disconnected
-//        anchors.verticalCenter: parent.verticalCenter
-//        x: 700
-//        y: 60
-//        fillMode: Image.PreserveAspectFit
-//        source: "/pics/call-disconnected.jpeg"
-//        height: 100
-//        width: 100
-//        opacity: 0
-
-
-//        Text {
-//            scale: 2
-//            y: 150; x: 45
-//            font.family: "Eurostile"; color: "white"; font.pixelSize: 11
-//            text: "Call Disconnected"
-//        }
-//    }
-
-
-    Image {
-            id: wifi
-            anchors.verticalCenter: parent.verticalCenter
-            x: 700
-            fillMode: Image.PreserveAspectFit
-            source: "/pics/wifi.png"
-            height: 100
-            width: 100
-            opacity: if (myclass1.net == 'Connected')
-                        {wifi.opacity= 1}
-                     else
-                        {wifi.opacity = 0.5}
-
-
-
-        }
-
-    Text {
-        scale: 2
-        y:350
-        x:700
-        font.family: "Eurostile"; color: "white"; font.pixelSize: 11
-        text: myclass1.net
-    }
-
-
+            // key pressed logics
               SpeedNeedle {
                   id: speedoNeedle
 
@@ -139,12 +33,14 @@ Rectangle {
                                 if (event.key == Qt.Key_Space && !event.isAutoRepeat) {
 
                                     if(fuelBar.value > 0){
+                                        //check fuelbar value to operate
                                         speedoNeedle.value = 100
                                         kWNeedle.value = 0
                                         timer.running = true
                                         drive()
-                                    } else {
+                                    } else if (fuelBar.value == 0){
                                         speedoNeedle.value = 0
+                                        timer.running = false
                                         kWNeedle.value = 100
                                     }
 
@@ -158,24 +54,25 @@ Rectangle {
 
                                 else if  (event.key == Qt.Key_Up && !event.isAutoRepeat) {
                                    console.log('arrow pressed')
-                                    i1.opacity=0
-                                     i2.opacity=1
+                                    i1.opacity=1
+                                    i1.rotation=180
                                }
                                 else if  (event.key == Qt.Key_Down && !event.isAutoRepeat) {
                                    console.log('arrow pressed')
                                     i1.opacity=1
-                                     i2.opacity=0
                                }
 
                                 else if  (event.key == Qt.Key_Right && !event.isAutoRepeat) {
                                    console.log('arrow pressed')
-                                    i3.opacity=1
+                                    i1.opacity=1
+                                    i1.rotation=270
 
                                }
 
                                 else if  (event.key == Qt.Key_Left && !event.isAutoRepeat) {
                                    console.log('arrow pressed')
-                                    i4.opacity=1
+                                    i1.opacity=1
+                                    i1.rotation=90
 
                                }
                        }
@@ -192,26 +89,28 @@ Rectangle {
 
                               if (event.key == Qt.Key_Down && !event.isAutoRepeat) {
                                   i1.opacity = 0
-                                  i2.opacity = 0
+                                  i1.rotation = 0
                              }
 
                               if (event.key == Qt.Key_Up && !event.isAutoRepeat) {
                                   i1.opacity = 0
-                                  i2.opacity = 0
+                                  i1.rotation = 0
                              }
 
                               if (event.key == Qt.Key_Right && !event.isAutoRepeat) {
-                                  i3.opacity = 0
-
+                                  i1.opacity = 0
+                                  i1.rotation = 0
                              }
 
                               if (event.key == Qt.Key_Left && !event.isAutoRepeat) {
-                                  i4.opacity = 0
+                                  i1.opacity = 0
+                                  i1.rotation = 0
 
                              }
 
                        }}
 
+              //rpm needle
               KWNeedle {
                   id: kWNeedle
                   anchors.verticalCenterOffset: 0
@@ -270,23 +169,6 @@ Rectangle {
                   letterP.color = "darkgray"
                   letterP.font.pixelSize = 18
               }
-
-              Timer {
-                  //update Calltime, calculate 60 seconds into 1 minute etc.
-                     interval: 1000; running: true; repeat: true
-                     onTriggered: {seconds++;
-
-                     if(seconds == 10){
-                         tenseconds += 1
-                         seconds = 0
-                     }
-                     if(seconds == 0 && tenseconds==6){
-                         minutes += 1
-                         seconds = 0
-                         tenseconds = 0
-                     }
-                     }
-                 }
 
 
  }

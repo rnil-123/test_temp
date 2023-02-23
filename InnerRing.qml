@@ -1,10 +1,10 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 Item {
-
+    //tacho background and the inner ring values
     property int speed: 0
 
-    height: 335 //TODO: Groesse skalierbar machen
+    height: 335
     width: height
     x: (parent.width / 2) - (width / 2)
     y: (parent.height / 2) - (height / 2)

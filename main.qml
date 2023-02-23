@@ -49,7 +49,7 @@ Window {
     }
 
 
-    //Leiste unten
+    //date and time
     Rectangle {
     y: parent.height - 90
     height: 200
@@ -109,34 +109,32 @@ Window {
     }
 
 
-    Temperature{
-        id: myclass
-    }
-    Netcheck{
-        id: myclass1
-    }
-
 
     Timer {
+        // timer for fuel bar progress
             id: timer
             interval: 1000
             running: false
             repeat: true
             onTriggered: {
                 if (fuelBar.value <= 1)
-                    fuelBar.value -= 0.01
+                    fuelBar.value -= 0.1
                 else
                     fuelBar.value = 1
             }
         }
 
     ProgressBar{
+        //fuel
         id: fuelBar
         x: (parent.width / 2) - (width / 2)
         y: 350
         value: 1
     }
+
+
     Button{
+        //fuel refill
         x: (parent.width / 2) - (width / 2)
         y: 390
         width: 50
@@ -144,9 +142,6 @@ Window {
         text: "Fuel"
         onClicked: fuelBar.value = 1
     }
-//    Serial{
-//        id: myclass2
-//    }
 
 
 
